@@ -9,12 +9,8 @@ describe('envs', () => {
 
   beforeAll(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [
-        // Coloque aqui os módulos que você precisa para o seu teste
-      ],
-      controllers: [
-        // Coloque aqui os controladores que você precisa para o seu teste
-      ],
+      imports: [],
+      controllers: [],
       providers: [
         {
           provide: ConfigService,
@@ -43,7 +39,7 @@ describe('envs', () => {
 
     expect(configService.get).toHaveBeenCalledTimes(2);
 
-    expect(result.port).toEqual(3000); // Substitua o valor conforme necessário
+    expect(result.port).toEqual(3000);
     expect(result.nodeEnv).toEqual('development');
   });
 });
