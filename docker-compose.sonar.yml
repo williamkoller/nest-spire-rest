@@ -6,3 +6,5 @@ services:
     ports:
       - '9000:9000'
       - '9092:9092'
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost:9092/sonar
