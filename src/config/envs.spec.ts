@@ -20,8 +20,8 @@ describe('envs', () => {
           provide: ConfigService,
           useValue: {
             get: jest.fn((key) => {
-              if (key === 'port') return 3000; // Substitua o valor conforme necessário
-              if (key === 'nodeEnv') return 'development'; // Substitua o valor conforme necessário
+              if (key === 'port') return 3000;
+              if (key === 'nodeEnv') return 'development';
             }),
           },
         },
@@ -41,7 +41,9 @@ describe('envs', () => {
   it('should return the correct port and nodeEnv', () => {
     const result = envs(app);
 
+    expect(configService.get).toHaveBeenCalledTimes(2);
+
     expect(result.port).toEqual(3000); // Substitua o valor conforme necessário
-    expect(result.nodeEnv).toEqual('development'); // Substitua o valor conforme necessário
+    expect(result.nodeEnv).toEqual('development');
   });
 });
