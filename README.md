@@ -1,4 +1,6 @@
-# Project Name
+[![Node.js CI](https://github.com/williamkoller/nest-spire-rest/actions/workflows/node.js.yml/badge.svg)](https://github.com/williamkoller/nest-spire-rest/actions/workflows/node.js.yml)
+
+# Nest Spire Rest
 
 A brief description of what this project does and why it's useful.
 
