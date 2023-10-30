@@ -6,7 +6,7 @@ import { configuration } from './configuration';
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: '.env' ?? `${process.env.PATH_ENV}`,
+      envFilePath: '.env',
       load: [configuration],
     }),
   ],

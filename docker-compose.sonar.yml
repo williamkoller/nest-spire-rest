@@ -7,12 +7,12 @@ services:
       - '9000:9000'
       - '9092:9092'
     environment:
-      - SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost:9092/sonar
-      - SONARQUBE_JDBC_USERNAME=admin
-      - SONARQUBE_JDBC_PASSWORD=admin
-      - SONAR_HOST_URL=http://localhost:9000
-      - SONAR_SCANNER_OPTS="-Dsonar.projectKey=nest-spire-rest"
-      - SONAR_TOKEN="sqp_1aadbea229a096f4610831a81813056d0eae442f"
+      - SONARQUBE_JDBC_URL=${SONARQUBE_JDBC_URL}
+      - SONARQUBE_JDBC_USERNAME=${SONARQUBE_JDBC_USERNAME}
+      - SONARQUBE_JDBC_PASSWORD=${SONARQUBE_JDBC_PASSWORD}
+      - SONAR_HOST_URL=${SONAR_HOST_URL}
+      - SONAR_SCANNER_OPTS=${SONAR_SCANNER_OPTS}
+      - SONAR_TOKEN=${SONAR_TOKEN}
 
     volumes:
       - sonarqube_data:/opt/sonarqube/data
