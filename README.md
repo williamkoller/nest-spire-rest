@@ -1,4 +1,5 @@
 [![Node.js CI](https://github.com/williamkoller/nest-spire-rest/actions/workflows/node.js.yml/badge.svg)](https://github.com/williamkoller/nest-spire-rest/actions/workflows/node.js.yml)
+[![CodeQL](https://github.com/williamkoller/nest-spire-rest/actions/workflows/codeql.yml/badge.svg)](https://github.com/williamkoller/nest-spire-rest/actions/workflows/codeql.yml)
 
 # Nest Spire Rest
 
