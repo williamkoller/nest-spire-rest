@@ -10,7 +10,8 @@ services:
       - SONARQUBE_JDBC_URL=jdbc:h2:tcp://localhost:9092/sonar
       - SONARQUBE_JDBC_USERNAME=admin
       - SONARQUBE_JDBC_PASSWORD=admin
-      
+      - SONAR_HOST_URL=http://localhost:9000
+
     volumes:
       - sonarqube_data:/opt/sonarqube/data
       - sonarqube_extensions:/opt/sonarqube/extensions
