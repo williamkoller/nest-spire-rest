@@ -36,5 +36,8 @@ jobs:
         env:
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST_URL }}
-        args: >
-          
+        with:
+          args: >
+            -Dsonar.projectKey=nest-spire-rest
+            -Dsonar.token=sqp_1aadbea229a096f4610831a81813056d0eae442f
+            -Dsonar.host.url=http://localhost:9000
