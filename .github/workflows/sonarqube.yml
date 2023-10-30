@@ -14,16 +14,29 @@ jobs:
   Analysis:
     runs-on: ubuntu-latest
 
-    steps:
-      - name: Analyze with SonarQube
+    strategy:
+      matrix:
+        node-version: [18.x]
 
-        # You can pin the exact commit or the version.
-        uses: SonarSource/sonarqube-scan-action@v1.1.0
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} # Generate a token on SonarQube, add it to the secrets of this repo with the name SONAR_TOKEN (Settings > Secrets > Actions > add new repository secret)
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }} # add the URL of your instance to the secrets of this repo with the name SONAR_HOST_URL (Settings > Secrets > Actions > add new repository secret)
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v2
         with:
-          args: -Dsonar.projectKey=nest-spire-rest
-            -Dsonar.token=sqp_1aadbea229a096f4610831a81813056d0eae442f
-            -Dsonar.host.url=http://localhost:9000
-            -Dsonar.sources=.
+          fetch-depth: 0
+      - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Gather Test Coverage
+        run: yarn test-coverage
+      - name: SonarQube Scan
+        uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST_URL }}
