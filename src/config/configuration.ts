@@ -1,4 +1,4 @@
-type ConfigurationType = {
+export type ConfigurationType = {
   port: number;
   nodeEnv: string;
 };
